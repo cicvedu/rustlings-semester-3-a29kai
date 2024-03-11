@@ -20,7 +20,6 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
 
 pub enum Command {
     Uppercase,
@@ -38,14 +37,18 @@ mod my_module {
         for (string, command) in input.iter() {
             // TODO: Complete the function body. You can do it!
             match command {
-                Command::Append()=>{
-
+                Command::Append(bar_times)=>{
+                    let mut string = string.clone();
+                    for _ in 0..*bar_times{
+                        string = format!("{}bar",string);
+                    }
+                    output.push(string);
                 },
                 Command::Trim=>{
-
+                    output.push(string.trim().to_string());
                 },
                 Command::Uppercase=>{
-                    
+                    output.push(string.to_uppercase());
                 }
             }
         }
